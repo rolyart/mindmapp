@@ -1,6 +1,7 @@
 {
     "general": {
-        "language": "en"
+        "language": "en",
+        "grids":false
     },
     "mapOptions": {
         "centerOnResize": false,

@@ -338,4 +338,12 @@ export class MmpService {
         this.currentId = id
     }
 
+    /**
+     * Grid map
+     */
+     public grid () {
+         
+     }
+      
+
 }

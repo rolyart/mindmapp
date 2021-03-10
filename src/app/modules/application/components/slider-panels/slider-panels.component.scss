@@ -1,19 +1,33 @@
 div.sliders-panel {
 
-    .mat-slider-vertical {
+    .node-font-size.mat-form-field {
         z-index: 2;
         position: absolute;
-        height: 180px;
-        top: 40%;
+        top:50%;
+        width:96px;
+        left:16px; 
+        height:56px;
+        text-align: center;
+    }
+
+   
+
+
+    .mat-slider-horizontal {
+        z-index: 2;
+        position: absolute;
+        top: 50%;
     }
 
     .font-size {
-        left: 5px;
+        left: 32px;
     }
 
     .image-size {
-        left: 35px;
+        left:8px;
     }
 
 }
+
+
 

@@ -11,13 +11,15 @@ import {TranslateService} from '@ngx-translate/core'
 })
 export class SettingsComponent {
 
-    public readonly languages: string[]
+    public readonly languages: string[];
+    public readonly grids: boolean;
     public settings: Settings
 
     constructor (private settingsService: SettingsService,
                  private mmpService: MmpService,
                  private translateService: TranslateService) {
-        this.languages = SettingsService.LANGUAGES
+        this.languages = SettingsService.LANGUAGES;
+        this.grids = SettingsService.GRIDS;
         this.settings = this.settingsService.getCachedSettings()
     }
 
@@ -32,8 +34,9 @@ export class SettingsComponent {
 
     public async updateLanguage () {
         await this.settingsService.updateCachedSettings(this.settings)
-
         this.translateService.use(this.settings.general.language)
     }
+
+   
 
 }

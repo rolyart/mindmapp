@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core'
+import { Router } from '@angular/router'
 import {MapCacheService} from '../../../../core/services/map-cache/map-cache.service'
 import {MmpService} from '../../../../core/services/mmp/mmp.service'
 import {UtilsService} from '../../../../core/services/utils/utils.service'
@@ -13,7 +14,8 @@ export class ToolbarComponent {
     @Input() public node: any
 
     constructor (public mapCacheService: MapCacheService,
-                 public mmpService: MmpService) {
+                 public mmpService: MmpService,
+                 private router:Router) {
     }
 
     public createNewMap () {
@@ -47,6 +49,12 @@ export class ToolbarComponent {
         } else {
             this.mmpService.updateNode('fontWeight', 'bold')
         }
+    }
+
+
+    goToAbout(){
+        localStorage.removeItem('start');
+        this.router.navigate(['']);
     }
 
 }

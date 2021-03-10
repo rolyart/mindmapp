@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core'
-import {faBrain, faChartLine, faCheck, faCogs, faHeart, faRocket} from '@fortawesome/free-solid-svg-icons'
+import { SwiperOptions } from 'swiper'
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'mindmapp-about',
@@ -8,17 +9,33 @@ import {faBrain, faChartLine, faCheck, faCogs, faHeart, faRocket} from '@fortawe
 })
 export class AboutComponent implements OnInit {
 
-    public faBrain = faBrain
-    public faRocket = faRocket
-    public faHeart = faHeart
-    public faChartLine = faChartLine
-    public faCogs = faCogs
-    public faCheck = faCheck
+    isSkiped:boolean = JSON.parse(localStorage.getItem('start'))?JSON.parse(localStorage.getItem('start')).isSkiped:false;
+    config: SwiperOptions = {
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
+        spaceBetween: 30
+    };
+    
+   
+    img1='./assets/images/mind-maps.png';
+    img2='./assets/images/solar-system.png';
+    img3='./assets/images/radial-tree.png';
+    img4='./assets/images/business-plan.png';
 
-    constructor () {
+    constructor (private router:Router) {
     }
 
     public ngOnInit () {
+        console.log(this.isSkiped)
+        if(this.isSkiped) this.router.navigate(['app'])
+    }
+
+    getToApp(){
+        localStorage.setItem('start', JSON.stringify({isSkiped:true}));
+        this.router.navigate(['app']);
     }
 
 }

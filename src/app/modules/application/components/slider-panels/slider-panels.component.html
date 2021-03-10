@@ -1,13 +1,30 @@
 <div class="sliders-panel">
+    <mat-form-field class="node-font-size" appearance="fill" *ngIf="node.font" [style.fontSize.px]="12">
+        <mat-label>Font size</mat-label>
+        <mat-select 
+            [(value)]="node.font.size" [style.fontSize.px]="16"
+            color="primary" 
+            (selectionChange)="onChangeFontsize($event)" 
+            [title]="'TOOLTIPS.TEXT_SIZE' | translate" >
+          <mat-option *ngFor="let nodeSize of nodeSizeRange" [value]="nodeSize">
+            {{nodeSize}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    <!----
     <mat-slider (change)="updateNodeFontSize($event)" (input)="updateNodeFontSize($event, true)"
                 *ngIf="node.font" [title]="'TOOLTIPS.TEXT_SIZE' | translate"
+                thumbLabel
                 [value]="node.font.size"
                 class="font-size"
                 color="primary"
-                max="70"
-                min="15"
+                max="96"
+                tickInterval="2"
+                min="16"
                 vertical>
     </mat-slider>
+    -->
     <mat-slider (change)="updateNodeImageSize($event)" (input)="updateNodeImageSize($event, true)"
                 *ngIf="node.image && node.image.src" [title]="'TOOLTIPS.IMAGE_SIZE' | translate"
                 [value]="node.image.size"
@@ -15,6 +32,6 @@
                 color="primary"
                 max="350"
                 min="50"
-                vertical>
+                >
     </mat-slider>
 </div>

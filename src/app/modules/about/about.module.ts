@@ -5,11 +5,13 @@ import {AboutComponent} from './pages/about/about.component'
 import {JumbotronComponent} from './components/jumbotron/jumbotron.component'
 import {HeaderComponent} from './components/header/header.component'
 import {FooterComponent} from './components/footer/footer.component'
+import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 
 @NgModule({
     imports: [
         SharedModule,
-        AboutRoutingModule
+        AboutRoutingModule,
+        NgxUsefulSwiperModule 
     ],
     declarations: [
         AboutComponent,

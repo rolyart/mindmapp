@@ -1,3 +1,10 @@
 div.map {
     height: 100%;
+    &.grids{
+        background-size: 1.18em 1.18em;
+        background-image:
+          linear-gradient(to right,#F5F5F5 1px, transparent 1px),
+          linear-gradient(to bottom, #F5F5F5  1px, transparent 1px);
+    }
 }
+

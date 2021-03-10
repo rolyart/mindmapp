@@ -37,4 +37,11 @@
             mat-mini-fab>
         <mat-icon aria-label="Example icon-button with a heart icon" color="primary">redo</mat-icon>
     </button>
+
+    <button (click)="toggleGrids(settings.general.grids)" [title]="'TOOLTIPS.REDO_MAP' | translate"
+            class="mat-elevation-z8 grid"
+            mat-mini-fab>
+        <mat-icon *ngIf="settings.general.grids" color="primary">grid_off</mat-icon>
+        <mat-icon *ngIf="!settings.general.grids" color="primary">grid_on</mat-icon>
+    </button>
 </div>

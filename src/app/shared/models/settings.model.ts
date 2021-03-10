@@ -6,5 +6,6 @@ export interface Settings {
 }
 
 interface General {
-    language: string
+    language: string,
+    grids:boolean
 }
